@@ -1,9 +1,35 @@
 // ITERATION 1
 
-function updateSubtotal(product) {
-  console.log('Calculating subtotal, yey!');
+var removeCartItemButtons = document.getElementsByClassName("btn-remove")
+console.log(removeCartItemButtons)
 
-  //... your code goes here
+for (var i = 0; i <removeCartItemButtons.length; i++) {
+  var button = removeCartItemButtons[i]
+  button.addEventListener('click', function(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateSubtotal
+  })
+}
+
+function updateSubtotal () {
+  var cartItemContainer = document.getElementById('cart')[0]
+  var cartRows = cartItemContainer.getElementsByClassName('product')
+  for (var i = 0; i <cartRows.length; i++) {
+    var cartRow = cartRows[i]
+    var priceElement = cartRow.getElementsByClassName('.price span')[0]
+    var quantityElement = cartRow.getElementsByClassName('.quantity input')[0]
+     var price = parseFloat(priceElement.innerText.replace('$', ''))
+     var quantity = quantityElements.value
+     total = total + (price * quantity)
+  }
+  document.getElementsByClassName('subtotal')[0].innerText = '$' + total
+}
+
+
+function updateSubtotal(product) {
+  const price = product.querySelector('.price span');
+  const quantity = product.querySelector('.quantity input');
 }
 
 function calculateAll() {
